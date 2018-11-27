@@ -1,0 +1,57 @@
+{
+    "name": "Mis Perris PWA",
+    "short_name": "MisPerris PWA",
+    "icons": [{
+        "src": "static/icons/dog-16.png",
+          "sizes": "16x16",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/dog-24.png",
+          "sizes": "24x24",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/dog-32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        }, {
+          "src": "static/icons/dog-48.png",
+          "sizes": "48x48",   
+          "type": "image/png"
+        }, {
+          "src": "static/icons/dog-57.png",
+          "sizes": "57x57",
+          "type": "image/png"
+        }, {
+            "src": "static/icons/dog-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+          }, {
+            "src": "static/iconsdog-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },{
+            "src": "static/icons/dog-114.png",
+            "sizes": "114x114",
+            "type": "image/png"
+          }, {
+            "src": "static/icons/dog-120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+          }, {
+            "src": "static/icons/dog-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          }, {
+            "src": "static/icons/dog-152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+          }, {
+            "src": "static/icons/dog-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }],
+    "start_url": "./templates/web/MisPerris.html",
+    "display": "standalone",
+    "background_color": "#3E4EB8",
+    "theme_color": "#2F3BA2"
+}

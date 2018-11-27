@@ -1,0 +1,103 @@
+header
+{
+	background: #76D7C4;
+	width: 25%;
+	height: 50px;
+	color: white;
+	float: left;
+}
+
+nav
+{
+	background: #76D7C4;
+	width: 100%;
+	height: 100px;
+}
+
+aside
+{
+	background: white;
+	color: black;
+	float: right;
+	width: 100%;
+	height: 100%;
+}
+
+#segundo
+{
+	background: white;
+	width: 50%;
+	height: 500px;
+	float: left;
+}
+
+#tercero{
+	background: white;
+	width: 50%;
+	height: 500px;
+	float: right;
+}
+iframe
+{
+	background: #FE642E;
+	width: 50%;
+	height: 300px;
+}
+footer
+{
+	background: #D7DBDD;
+	width: 100%;
+	height: auto;
+	color: black;
+	float: left;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+#Formulario{
+	width: 80%;
+	height: 50px;
+	background: white;
+	color: black;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #76D7C4;
+}
+
+ul.topnav li {
+	float: left;
+}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {
+	background-color: #1abc9c;
+}
+
+ul.topnav li a.active {}
+
+ul.topnav li.right {
+	float: right;
+}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+
+

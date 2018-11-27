@@ -1,0 +1,192 @@
+{% extends "base2.html" %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo2.css" %}'>
+<title>{% block title %}Registrarse{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+<header>
+	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
+</header>
+{% if user.is_authenticated %}
+<h3>Hola {{ user.username }}</h3>
+	<div class="nav-content">
+		<ul class="topnav">
+			<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a></li>
+			<li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+			<li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+			<li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+			<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+			<li class="tab"><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
+		</ul>
+	</div>
+{% else %}
+<nav class="nav-extended">
+<div class="nav-wrapper">
+    <div class="nav-content">
+	    <ul class="topnav">
+	    <li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
+	    <li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+	    <li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+	    <li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+	    <li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+	    <li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
+	    </ul>
+    </div>
+</div>
+</nav>
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit">
+</form>                
+{% endblock content %}
+<script type="text/javascript" src="{% static 'jquery-3.3.1.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+
+<script>document.addEventListener('DOMContentLoaded', function() {
+var elems = document.querySelectorAll('select');
+var instances = M.FormSelect.init(elems, options);});
+$(document).ready(function(){
+$('select').formSelect();});
+</script>
+
+<!--este es-->
+<script>
+   $('select').Material_select();
+</script>
+
+<!--Validación de datos personales-->
+<script type="text/javascript">
+function validarCorreo() {
+    correo = document.getElementById("mail").value;
+    if ( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor))) {
+        return false;
+        document.getElementById("mail").focus();
+        document.getElementById("mail").style.color="red"
+    } 
+    else {
+        document.getElementById("mail").style.color="green"
+    }
+}
+
+function validarRut() {
+    run= document.getElementById("rut").value;
+    var letra=['K'];
+    if ( !(/^\d{8}[A-Z]$/.test(run)) ) {
+        document.getElementById("rut").focus();
+        document.getElementById("rut").style.color="red";
+    } 
+    else {
+        document.getElementById("rut").style.color="green";
+    }
+    if(letra.charAt(8) != letra[(valor.substring(0, 8))%23]) {
+        return false;
+    }
+}
+
+function validarNombre() {
+    nombre = document.getElementById("name").value;
+    if (nombre ==null || nombre.leght==0 || /^\s+$/.test(nombre) ) {
+        document.getElementById("name").focus();
+        document.getElementById("name").style.color="red";
+    } 
+    else {
+        document.getElementById("name").style.color="green";
+    }
+}
+
+function validarFecha(){
+    var fecha = document.getElementById("date").value;
+    if (validarFormatoFecha(fecha)) {
+        if (fechaExiste(fecha)) {
+            alert("La fecha introducida es correcta");
+            document.getElementsByTagName("date").focus();
+            document.getElementById("id_fechaNac").style.color= "green";
+        } 
+        else {
+            alert("La fecha introducida es incorrecta");
+            document.getElementsByTagName("date").focus();
+            document.getElementById("date").style.color= "red";
+        }
+    } 
+    else {
+        alert("El formato de la fecha es incorrecto");
+        document.getElementById("date").style.color= "red";
+    }
+}
+
+function validarFormatoFecha(date){
+    var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+    if ((id_fechaNac.match(RegExPattern)) && (id_fechaNac!= '')) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
+function fechaExiste(date){
+    var fechaf = id_fechaNac.splint("/");
+    var day = fechaf[0];
+    var month = fechaf[1];
+    var year = fechaf[2];
+    var date = new Date(year, month, '0');
+    if ((day-0)> (date.getDate()-0)) {
+        return false;
+    } else {
+    return true;
+}
+
+function validarTelefono(){
+    fono = document.getElementById("phone").value;
+    if ( !(/^\d{9}$/.test(fono)) ) {
+    document.getElementById("phone").focus();
+    document.getElementById("phone").style.color="red";
+    } 
+    else {
+    document.getElementById("phone").style.color="green";
+    }
+}
+
+</script>
+
+<!--Validaciones de regiones, ciudades y lugares-->
+<script type="text/javascript">
+function validarRegion() {
+    regi = document.getElementById("region").selectedIndex;
+    if (regi== null || regi ==0) {
+        return false;
+    }
+}
+
+function validarCiudad() {
+    ciud =document.getElementById("ciudad").selectedIndex;
+    if (ciud==null || ciud==0) {
+    return false;
+    }
+}
+
+function validarLugar() {
+    luga = document.getElementById("lugar").selectedIndex;
+    if (luga==null || luga==0) {
+        return false;
+    }
+}
+</script>
+
+<footer>
+	<p>Desarrollo Web y Mobile</p>
+</footer>
+</body>
+</html>

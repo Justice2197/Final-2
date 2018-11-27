@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Bienvenido{% endblock %}
+	{% block content %}
+<header>
+	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
+</header>
+{% if user.is_authenticated %}
+<h3>Hola {{ user.username }}</h3>
+	<div class="nav-content">
+		<ul class="topnav">
+			<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a></li>
+			<li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+			<li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+			<li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+			<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+			<li class="tab"><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
+		</ul>
+	</div>
+{% else %}
+<nav class="nav-extended">
+<div class="nav-wrapper">
+</div>
+	<div class="nav-content">
+		<ul class="topnav">
+		<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
+		<li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+		<li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+		<li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+		<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+		<li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
+		<li class="tab"><a href="{% url 'mascota_list' %}">Mascotas</a></li>
+		</ul>
+</div>
+</nav>
+	<div id="carrusel" class="carousel">
+		<a class="carousel-item" href="#one!"><img class="responsive-img" src='{% static "img/perro.jpeg" %}' alt="Thomas">Estoy feliz de tener a Thomas en casa. Es un perro super cariñoso.</a>
+		<a class="carousel-item" href="#two!"><img class="responsive-img" src='{% static "img/perro1.jpg" %}' alt="David">David es curioso, divertido y amoroso. Me alegro que este viviendo conmigo.</a>
+		<a class="carousel-item" href="#three!"><img class="responsive-img" src='{%static "img/perro2.jpg" %}' alt="Darwin">Me alegro de tener a Darwin conmigo. Es un compañero super fiel y dispuesto a ayudarme.</a>
+		<a class="carousel-item" href="#four!"><img class="responsive-img" src='{%static "img/perro3.jpeg" %}' alt="Luis">Luis es un perro cariñoso, valiente, siempre esta conmigo cuando más lo necesito.</a>
+		<a class="carousel-item" href="#five!"><img class="responsive-img" src='{%static "img/perro4.jpg" %}' alt="Dave">Me alegro de tener a Dave a mi lado, es enérgico, audaz e inteligente. Esta cuando necesito de su ayuda.</a>
+		<a class="carousel-item" href="#six!"><img class="responsive-img" src='{% static "img/perro5.jpg" %}' alt="Jose y Cesar">Jose y Cesar son perros maravillosos, son fieles, amorosos y alegres, no nos arrepentimos de haberlos adoptados.</a>
+		<a class="carousel-item" href="#seven!"><img class="responsive-img" src='{% static "img/perro6.jpg" %}' alt="Manuel">Manuel es un perro super tierno, fiel e inteligente. Estamos felices que este con nosotros.</a>
+	</div>
+<aside>
+	<div class="left">
+		<p>+56 9 98765431</p>
+	</div>
+	
+<div class="center">
+	<p>Rescate y adopción de perros calljeros</p>
+</div>
+	
+<div class="right">
+	<a href="https://www.facebook.com/mis.perris/"><img src='{% static "img/facebook.jpg" %}' alt="facebook" id="face"></a>
+	<a href="https://plus.google.com/u/0/117742253851798801267"><img src='{% static "img/googleplus.jpg" %}' alt="google plus" id="google"></a>
+	<a href="https://www.instagram.com/MisPerris/"><img src='{% static "img/instagram.jpg" %}' alt="instagram.jpg" id="insta"></a>
+	<a href="https://mail.google.com/mail/u/1/?tab=wm#inbox"><img src='{% static "img/mail.jpg" %}' alt="mail" id="mail"></a>
+</div>
+</aside>
+
+<section id=segundo>
+	<h3 id="rescate1">Rescate</h3>
+	<p id="Etapa1">Etapa uno</p>
+	<p id=borde></p><br>
+	<p id="descri">Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y lo <br> preparamos para buscarles un hogar.</p><br>
+	<img id="rescate" class="responsive-img" src='{% static "img/rescate.jpg" %}' alt="rescate">
+</section>
+			
+<section id=tercero>
+	<br><br>
+	<img id="crowfunding" class="responsive-img" src='{% static "img/crowfunding.jpg" %}' alt="crowfunding">
+	<h3>Crowfunding</h3>
+	<p>FINANCIAMIENTO</p>
+	<p id=borde2></p><br>
+	<p>Sigue nuestras redes sociales para informarte acerca de las diversas campañas y<br>actividades que realizamos para obtener financiamiento para seguir ayudando.</p><br><br>
+</section>
+	<button id="boton" class="btn waves-effect waves-light" type="submit" name="action">Campaña
+		<i class="material-icons right"></i>
+	</button>
+				  
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id ="Tom" class="responsive-img" src='{% static "img/perro7.jpg" %}' alt="tom"></a>
+</div>
+	<div class="desc">
+		Nombre: Tom.<br>Reseña: Es un perro valiente, activo, con una buena condición física, alegre <br>y siempre dispuesto ayudar su dueño cuando más lo necestite.
+	</div>
+</div>
+			
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id="Luisa" class="responsive-img" src='{% static "img/perro8.jpg" %}' alt="luisa"></a>
+</div>
+	<div class="desc">
+		Nombre: Luisa.<br>Reseña: Es una perra que le gusta jugar con la ropa, hacer agujeros y esconderla, <br>también, le encanta jugar bajo la lluvia y meterse en el barro.
+	</div>
+</div>
+			
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id="Marcelo" class="responsive-img" src='{% static "img/perro9.jpg" %}' alt="marcelo"></a>
+</div>
+	<div class="desc">
+		Nombre: Marcelo.<br>Reseña: Es un perro energico, un poco bruto a la hora de jugar, <br>le gusta morder ropa, calcetines, zapatos, entre otros objetos.
+	</div>
+</div>
+			
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id="John" class="responsive-img" src='{% static "img/perro10.jpg" %}' alt="john"></a>
+</div>
+	<div class="desc">
+		Nombre: John.<br>Reseña: Es un cachorro alegre, cariñoso y amoroso, <br>es fiel a su dueño y nunca se aleja de el sin importar a donde vaya.<br>Le encanta jugar y enbarrarse en el barro en los días de lluvia.
+	</div>
+</div>
+			
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id="Paolo" class="responsive-img" src='{% static "img/perro11.jpg" %}' alt="paolo"></a>
+</div>
+	<div class="desc">
+		Nombre: Paolo.<br>Reseña: Es un perro audaz, inteligente, alegre y energico, le gusta dormir en el sofá o en el pasto,<br>también, le encanta jugar con su dueño al frisbi, pelota, cuerda, entre otros.
+	</div>
+</div>
+			
+<div class="responsive">
+	<div class="gallery">
+	<a target="_blank"><img id="Camila" class="responsive-img" src='{% static "img/perro12.jpg" %}' alt="camila"></a>
+</div>
+	<div class="desc">
+		Nombre: Camila.<br>Reseña: Es una parrita que le encanta morder y esconder calcetines, <br>enterrar objetos, saltar sobre las personas para despertarlos.
+	</div>
+</div>
+			
+<div class="responsive">
+		<div class="gallery">
+		<a target="_blank"><img id="Susan" class="responsive-img" src='{% static "img/perro13.jpg" %}' alt="susan"></a>
+</div>
+	<div class="desc">
+		Nombre: Susan.<br>Reseña: Es una perra astuta, audaz y valiente, le encanta jugar,<br>enterrar objetos, es desconfiada con la gente que no conoce.
+	</div>
+</div>
+<br>
+<footer>
+	<p>Desarrollo Web y Mobile</p>
+</footer>
+
+{% endif %}
+	{% endblock content %}

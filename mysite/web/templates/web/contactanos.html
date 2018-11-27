@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+<!--Materialize-->
+<link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+<link href='{% static "https://fonts.googleapis.com/icon?family=Material+Icons" %}' rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Estilo CSS-->
+<link rel="stylesheet" href='{% static "css/Estilo.css" %}'>
+<title>{% block title %}Quienes Somos{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+<header>
+	<img src='{% static "img/logo.png" %}' alt="Mis Perris">
+</header>
+{% if user.is_authenticated %}
+<h3>Hola {{ user.username }}</h3>
+	<div class="nav-content">
+		<ul class="topnav">
+			<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a></li>
+			<li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+			<li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+			<li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+			<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+			<li class="tab"><a href="{% url 'sign_out' %}">Cerrar sesión</a></li>
+		</ul>
+	</div>
+{% else %}
+<nav class="nav-extended">
+<div class="nav-wrapper">
+</div>
+	<div class="nav-content">
+		<ul class="topnav">
+		<li class="tab"><a class="active" href="{% url 'bienvenida' %}">Inicio</a>
+		<li class="tab"><a href="{% url 'somos'%}">Quienes Somos</a></li>
+		<li class="tab"><a href="{% url 'servicios' %}">Servicios</a></li>
+		<li class="tab"></a><a href="{% url 'contact' %}">Contáctanos</a></li>
+		<li class="tab"><a href="{% url 'sign_up' %}">Registrarse</a></li>
+		<li class="tab"><a href="{% url 'sign_in' %}">Iniciar sesión</a></li>
+		</ul>
+</div>
+</nav>
+
+<div>
+	<p>Jefe de Proyecto: Pablo Peña</p>
+	<p>Email: pablo.penag@alumnos.duoc.cl</p>
+	<p>Teléfono: +56 9 7737 4733</p>
+	<br>
+	<p>Desarrollador: Nicolas Vergara</p>
+	<p>Email: nico.vergaral@alumnos.duoc.cl</p>
+	<p>Teléfono: +56 9 5194 8466</p>
+	<br>
+	<p>Profesor: Cristian García</p>
+	<p>Email: crist.garci@profesor.duoc.cl</p>
+</div>
+{% endif %}
+    {% endblock content %}
+</body>
+</html>

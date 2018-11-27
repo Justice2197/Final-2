@@ -1,0 +1,15 @@
+{
+    "name": "pwa-misperris",
+    "version": "1.0.0",
+    "description": "Web misperris",
+    "main": "app.js",
+    "dependencies": {
+      "http-server": "^0.11.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "start": "http-server -c-1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
