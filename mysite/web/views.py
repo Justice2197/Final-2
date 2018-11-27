@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
+from django.contrib.auth import logout
 # Create your views here.
 
 class SignUpView(CreateView):
@@ -38,8 +39,13 @@ class SignUpView(CreateView):
 class BienvenidaView(TemplateView):
     template_name = 'web/MisPerris.html'
 
-class SignInView(LoginView):
-    template_name = 'web/iniciar_sesion.html'
+def signInView(request):
+    return render(request, 'web/iniciar_sesion.html')
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect("/login/index/")
+
 
 class SignOutView(LogoutView):
     pass

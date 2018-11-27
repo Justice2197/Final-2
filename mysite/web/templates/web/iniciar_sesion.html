@@ -44,23 +44,9 @@
 </div>
 </nav>
 {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" name="submit">
-	</form>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+    <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Login
+    </a>
  <footer>
     <p>Desarrollo Web y Mobile</p>
 </footer>

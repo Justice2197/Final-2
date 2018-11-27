@@ -16,16 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from web.views import SignUpView, BienvenidaView, SignInView, SignOutView, InfoView, ContactView, ServicioView
+from web.views import SignUpView, BienvenidaView, signInView, SignOutView, InfoView, ContactView, ServicioView, logout_view
+from django.conf import settings
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^$', BienvenidaView.as_view(), name='bienvenida'),
     url(r'^registrarse/$', SignUpView.as_view(), name='sign_up'),
-    url(r'^inicia-sesion/$', SignInView.as_view(), name='sign_in'),
+    url(r'^inicia-sesion/$', signInView, name='sign_in'),
     url(r'^cerrar-sesion/$', SignOutView.as_view(), name='sign_out'),
     url(r'^quienes_somos/$', InfoView.as_view(), name="somos"),
     url(r'^contactanos/$', ContactView.as_view(), name="contact"),
     url(r'^servicios/$', ServicioView.as_view(), name="servicios"),
     path('mascota', include('web.urls')),
+    path('', include('social_django.urls', namespace='social')),
+    path('logout/', logout_view, {'next_page': settings.LOGOUT_REDIRECT_URL},name='logout'),
 ]
